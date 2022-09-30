@@ -1,4 +1,4 @@
-import random
+from random import randint
 
 
 class Fighting:
@@ -7,26 +7,9 @@ class Fighting:
         self.xp = xp
         print('Вы создали игрока {} с количеством хп 100'.format(self.player))
 
-    def hit(self, opponent):
-        if True:
-            print('Игрок {} нанёс удар опоненту {}'.format(self.player, opponent.player))
-            opponent.ostxp(
-                opponent.polxp() - random.randint(0, 30)
-            )
-
-    def ostxp(self, xp):
-        self.xp = xp
-        if xp > 0:
-            print('У игрока {} осталось {}'.format(self.player, self.xp))
-        else:
-            print('У игрока {} нет хп'.format(self.player))
-
-    def polxp(self):
-        try:
-            return self.xp
-            print('XP {} - {}'.format(self.player, self.xp))
-        except:
-            return 'ХП net'
+    def hit(self, damage):
+        if type(self) == type(damage):
+            damage.xp -= randint(0, 25)
 
 
 print('Введите имя первого игрока ')
@@ -40,7 +23,7 @@ hero_2 = Fighting(player_2, 100)
 print('Чтобы начать нажмите Enter')
 enter = input()
 while (hero_1.xp > 0) and (hero_2.xp > 0):
-    fight = random.randint(1, 2)
+    fight = randint(1, 2)
     if fight == 1:
         hero_1.hit(hero_2)
     else:
