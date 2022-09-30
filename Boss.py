@@ -54,4 +54,3 @@ while (hero_1.xp > 0) and (hero_2.xp > 0):
         name = hero_1.player
 
 print('{} Победил игрокa {}'.format(player, name))
-print()
